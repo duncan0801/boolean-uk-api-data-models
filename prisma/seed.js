@@ -73,8 +73,85 @@ const tickets = [
 		guest: { connect: { id: 3 } },
 	},
 ];
+const outfits = [
+	{
+		season: "Winter 2021",
+		designer: { connect: { id: randomID(designers) } },
+		event: { connect: { id: randomID(events) } },
+	},
+	{
+		season: "Winter 2021",
+		designer: { connect: { id: randomID(designers) } },
+		event: { connect: { id: randomID(events) } },
+	},
+	{
+		season: "Winter 2021",
+		designer: { connect: { id: randomID(designers) } },
+		event: { connect: { id: randomID(events) } },
+	},
+	{
+		season: "Winter 2021",
+		designer: { connect: { id: randomID(designers) } },
+		event: { connect: { id: randomID(events) } },
+	},
+	{
+		season: "Winter 2021",
+		designer: { connect: { id: randomID(designers) } },
+		event: { connect: { id: randomID(events) } },
+	},
+	{
+		season: "Winter 2021",
+		designer: { connect: { id: randomID(designers) } },
+		event: { connect: { id: randomID(events) } },
+	},
+	{
+		season: "Winter 2021",
+		designer: { connect: { id: randomID(designers) } },
+		event: { connect: { id: randomID(events) } },
+	},
+	{
+		season: "Winter 2021",
+		designer: { connect: { id: randomID(designers) } },
+		event: { connect: { id: randomID(events) } },
+	},
+	{
+		season: "Winter 2021",
+		designer: { connect: { id: randomID(designers) } },
+		event: { connect: { id: randomID(events) } },
+	},
+	{
+		season: "Winter 2021",
+		designer: { connect: { id: randomID(designers) } },
+		event: { connect: { id: randomID(events) } },
+	},
+	{
+		season: "Winter 2021",
+		designer: { connect: { id: randomID(designers) } },
+		event: { connect: { id: randomID(events) } },
+	},
+	{
+		season: "Winter 2021",
+		designer: { connect: { id: randomID(designers) } },
+		event: { connect: { id: randomID(events) } },
+	},
+	{
+		season: "Winter 2021",
+		designer: { connect: { id: randomID(designers) } },
+		event: { connect: { id: randomID(events) } },
+	},
+	{
+		season: "Winter 2021",
+		designer: { connect: { id: randomID(designers) } },
+		event: { connect: { id: randomID(events) } },
+	},
+	{
+		season: "Winter 2021",
+		designer: { connect: { id: randomID(designers) } },
+		event: { connect: { id: randomID(events) } },
+	},
+];
 
-function randomInt(entity) {
+function randomID(entity) {
 	return Math.ceil(Math.random() * entity.length);
 }
 async function main() {
@@ -94,18 +171,21 @@ async function main() {
 				// outfits: {
 				// 	create: {
 				// 		season: "Autumn2021",
-				// 		designerId: randomInt(designers),
-				// 		eventId: randomInt(events),
+				// 		designerId: randomID(designers),
+				// 		eventId: randomID(events),
 				// 	},
 				// },
 			},
 		});
 	}
-	// for (const ticket of tickets) {
-	// 	await prisma.ticket.create({
-	// 		data: ticket,
-	// 	});
-	// }
+	for (const ticket of tickets) {
+		await prisma.ticket.create({
+			data: ticket,
+		});
+	}
+	for (const outfit of outfits) {
+		await prisma.outfit.create({ data: outfit });
+	}
 }
 main()
 	.catch((e) => {

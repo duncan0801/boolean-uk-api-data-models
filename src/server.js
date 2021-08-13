@@ -12,9 +12,11 @@ app.use(express.json());
 // app.use(express.static(path.join(__dirname, 'public')));
 
 //ROUTERS
-const designerRouter = require("./resources/designer/router")
+const designerRouter = require("./resources/designer/router");
+const eventRouter = require("./resources/event/router");
 
 //ROUTES
-app.use("/designers", designerRouter)
+app.use("/designers", designerRouter);
+app.use("/events", eventRouter);
 
 module.exports = app;
