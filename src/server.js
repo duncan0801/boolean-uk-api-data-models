@@ -14,9 +14,10 @@ app.use(express.json());
 //ROUTERS
 const designerRouter = require("./resources/designer/router");
 const eventRouter = require("./resources/event/router");
+const guestRouter = require("./resources/guest/router");
 
 //ROUTES
 app.use("/designers", designerRouter);
-app.use("/events", eventRouter);
+app.use("/guests", guestRouter);
 
 module.exports = app;

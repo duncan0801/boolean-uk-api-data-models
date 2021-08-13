@@ -17,7 +17,7 @@ async function createOne(req, res) {
 		const savedEvent = await dbClient.event.create({
 			data: {
                 name,
-                date:formattedDate 
+                
             },
 		});
 		res.json({ savedEvent });
