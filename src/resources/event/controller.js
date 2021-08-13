@@ -10,15 +10,15 @@ async function getOneById(req, res) {
 	res.json(event);
 }
 async function createOne(req, res) {
-	const {name, date} = req.body;
+	const { name, date } = req.body;
 
-    const formattedDate = new Date(date).toISOString()
+	const formattedDate = new Date(date).toISOString();
 	try {
 		const savedEvent = await dbClient.event.create({
 			data: {
-                name,
-                
-            },
+				name,
+				date: formattedDate,
+			},
 		});
 		res.json({ savedEvent });
 	} catch (error) {
