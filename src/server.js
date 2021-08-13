@@ -11,4 +11,10 @@ app.use(express.json());
 // app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, 'public')));
 
+//ROUTERS
+const designerRouter = require("./resources/designer/router")
+
+//ROUTES
+app.use("/designers", designerRouter)
+
 module.exports = app;
