@@ -15,13 +15,14 @@ async function createOne(req, res) {
 		const savedOutfit = await dbClient.outfit.create({
 			data: {
 				season,
-				designer: { connect: { designerId } },
-				event: { connect: { eventId } },
-				guest: guestId ? { connect: { guestId } } : null,
+				designer: { connect: { id: designerId } },
+				event: { connect: { id: eventId } },
+				guest: guestId ? { connect: { id: guestId } } : undefined,
 			},
 		});
 		res.json({ savedOutfit });
 	} catch (error) {
+		console.log(error.message);
 		res.json({ error: error.message });
 	}
 }
@@ -29,10 +30,10 @@ async function deleteById(req, res) {
 	const id = Number(req.params.id);
 
 	try {
-		const deletedoutfit = await dbClient.outfit.delete({
+		const deletedOutfit = await dbClient.outfit.delete({
 			where: { id },
 		});
-		res.json({ deletedoutfit });
+		res.json({ deletedOutfit });
 	} catch (error) {
 		res.json({ error });
 	}
